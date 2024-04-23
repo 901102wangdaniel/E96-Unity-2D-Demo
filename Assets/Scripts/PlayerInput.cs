@@ -11,9 +11,7 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private float speed = 5f;
     [SerializeField] private float dashingSpeed = 100f;
     private bool isDashing;
-    private float dashingTime = 0.1f;    
-    [SerializeField] private float jumpheight = 5f;
-    private float jumpTime = 0.1f;
+    private float dashingTime = 0.075f;    
 
     
     // Start is called before the first frame update
@@ -53,30 +51,4 @@ public class PlayerInput : MonoBehaviour
         yield return new WaitForSeconds(dashingTime);
         isDashing = false;
     }
-
-    IEnumerator OnJump()
-    {
-        // Debug.Log("jump");
-        // Jump();
-        rb.gravityScale = -250;
-        yield return new WaitForSeconds(jumpTime);
-        rb.gravityScale = 250;
-        yield return new WaitForSeconds(jumpTime);
-        rb.gravityScale = 0;
-    }
-
-    // private IEnumerator Jump()
-    // {
-        // Debug.Log("jumppppp");
-        // float originalY = rb.velocity.y;
-        // rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + jumpheight);
-        // yield return new WaitForSeconds(jumpTime);
-        // rb.velocity = new Vector2(rb.velocity.x, originalY);
-        
-        // rb.gravityScale = -250;
-        // yield return new WaitForSeconds(jumpTime);
-        // rb.gravityScale = 250;
-        // yield return new WaitForSeconds(jumpTime);
-        // rb.gravityScale = 0;
-    // }
 }
